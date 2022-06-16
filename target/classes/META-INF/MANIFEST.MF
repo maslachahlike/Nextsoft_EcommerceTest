@@ -1,10 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
-Built-By: Nexsoft
+Built-By: nexsoft
 Build-Jdk: 17.0.2
-=======
-Built-By: 62822
-Build-Jdk: 18.0.1
->>>>>>> b9f0b0a2755379b005318c04b40d159bceee63e5
 Created-By: Maven Integration for Eclipse
 
