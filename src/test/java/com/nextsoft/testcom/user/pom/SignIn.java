@@ -5,8 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.nextsoft.testcom.user.Tools;
+
 public class SignIn {
 	protected WebDriver driver;
+	protected Tools tool = new Tools();
 	
 	@FindBy(xpath = "//input[@id='email_create']")
 	private WebElement fieldCreateAccountEmail;
@@ -40,21 +43,14 @@ public class SignIn {
 	}
 	
 	public String getMsgErrEmptyOrInvalidCreateEmail() {
-		stopAmoment();
+		tool.stopForMoment();
 		return msgErrEmptyOrInvalidCreateEmail.getText();
 	}
 	
 	public String getMsgErrExistCreateEmail() {
-		stopAmoment();
+		tool.stopForMoment();
 		return msgErrExistCreateEmail.getText();
 	}
 	
-	public void stopAmoment() {
-		try {
-			Thread.sleep(3000);
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-	}
 	
 }

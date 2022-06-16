@@ -13,6 +13,7 @@ import com.nextsoft.testcom.user.pom.HomePage;
 
 public class CreateAccountTest {
 	public WebDriver driver;
+	protected Tools tool = new Tools();
 	
 	@BeforeClass
 	public void initial() {
@@ -30,26 +31,34 @@ public class CreateAccountTest {
 		
 	}
 	
-	@Test(priority = 0)
+	@Test(enabled = false, priority = 0)
 	public void createAccountValidEmail() {
 		PageFactory.initElements(driver, HomePage.class).clickSignIn().inputEmail("yuninda@email.com").clickCreateAccount().goToFormCreateAccountPage();
-		try {
-			Thread.sleep(5000);
-		} catch (Exception e) {
-			
-		}
+		tool.stopForMoment();
 		
 		
 	}
 	
-	@Test(priority = 1)
+	@Test(enabled = false, priority = 1)
 	public void cekEmailErrorInvalid() {
 		String errMsg = PageFactory.initElements(driver, HomePage.class).clickSignIn().inputEmail("yuninda.com").clickCreateAccount().getMsgErrEmptyOrInvalidCreateEmail();
 		assertEquals(errMsg, "Invalid email address.");
 	}
 	
-	@Test(priority = 2)
+	@Test(enabled = false, priority = 2)
 	public void cekEmailErrorEmpby() {
+		String errMsg = PageFactory.initElements(driver, HomePage.class).clickSignIn().inputEmail("").clickCreateAccount().getMsgErrEmptyOrInvalidCreateEmail();
+//		PageFactory.initElements(driver, HomePage.class).clickSignIn().inputEmail("yuninda@email.com").clickCreateAccount().goToFormCreateAccountPage();
+//		tool.scroolVerticalWindows(driver, 500);
 		
+		assertEquals(errMsg, "Invalid email address.");
+	}
+	
+	@Test(priority = 10)
+	public void testElement() {
+//		boolean statusButton = PageFactory.initElements(driver, HomePage.class).clickSignIn().inputEmail("yuninda@email.com").clickCreateAccount().goToFormCreateAccountPage().checkRadioButtonMr();
+//		System.out.println("Button status: "+statusButton);
+		
+		PageFactory.initElements(driver, HomePage.class).clickSignIn().inputEmail("yuninda@email.com").clickCreateAccount().goToFormCreateAccountPage().testDropDown();
 	}
 }
