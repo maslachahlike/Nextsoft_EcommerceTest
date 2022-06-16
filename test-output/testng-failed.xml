@@ -5,7 +5,7 @@
     <classes>
       <class name="com.nextsoft.testcom.user.CreateAccountTest">
         <methods>
-          <include name="cekError"/>
+          <include name="createAccountValidEmail"/>
           <include name="initial"/>
           <include name="cekSession"/>
         </methods>

@@ -15,7 +15,7 @@ public class CreateAccountTest {
 	@BeforeClass
 	public void initial() {
 		System.setProperty("url", "http://automationpractice.com/index.php");
-		System.setProperty("webdriver.chrome.driver", "C:\\Antoni\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get(System.getProperty("url"));
 		driver.manage().window().maximize();
@@ -30,7 +30,7 @@ public class CreateAccountTest {
 	@Test(priority = 0)
 	public void createAccountValidEmail() {
 		PageFactory.initElements(driver, HomePage.class).clickSignIn().inputEmail("yuninda@email.com")
-				.clickCreateAccount().goToFormCreateAccountPage();
+				.clickCreateAccount().goToFormCreateAccountPage().getCountry();
 		try {
 			Thread.sleep(5000);
 		} catch (Exception e) {
@@ -39,14 +39,14 @@ public class CreateAccountTest {
 
 	}
 
-	@Test(priority = 1)
+//	@Test(priority = 1)
 	public void cekEmailErrorInvalid() {
 		String errMsg = PageFactory.initElements(driver, HomePage.class).clickSignIn().inputEmail("yuninda.com")
 				.clickCreateAccount().getMsgErrEmptyOrInvalidCreateEmail();
 //		assertEquals(errMsg, "Invalid email address.");
 	}
 
-	@Test(priority = 2)
+//	@Test(priority = 2)
 	public void cekEmailErrorEmpby() {
 
 	}
