@@ -5,19 +5,23 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-
-public class HomePage {
+public class CatalogActionPage {
 	protected WebDriver driver;
 	
-	@FindBy(xpath = "//a[@title='Log in to your customer account']")
+	
+	@FindBy(xpath = "//a[normalize-space()='Sign In']")
 	private WebElement btnSignIn;
 	
-	public HomePage (WebDriver driver){
+	
+	public CatalogActionPage(WebDriver driver) {
 		this.driver = driver;
 	}
 	
-	public SignIn clickSignIn() {
+	
+	public SignInPage clickCreateAccount() {
 		btnSignIn.click();
-		return PageFactory.initElements(driver, SignIn.class);
+		return PageFactory.initElements(driver, SignInPage.class);
 	}
+	
+	
 }
